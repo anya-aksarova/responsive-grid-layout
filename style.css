@@ -1,0 +1,69 @@
+/*CSS VARIABLES*/
+:root {
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+/*CORE STYLES*/
+html {
+    box-sizing: border-box;
+    font-family: 'Verdana', sans-serif;
+    color: var(--dark);
+}
+
+body {
+    background-color: #ccc;
+    margin: 30px 50px;
+    line-height: 1.4;
+}
+
+/*kind of global variable*/
+.btn {
+    /*1rem = 16px unless specified different in html element*/
+    padding: 0.6rem 1.3rem;
+    color: var(--light;)
+    background-color: var(--dark);
+    text-decoration: none;
+    border: 0;
+}
+
+img {
+    /*because we want our imgs to stay within
+    their container*/
+    max-width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    gap: 20px;
+}
+
+/*NAVIGATION*/
+.main-nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0;
+    list-style: none;;
+}
+
+.main-nav a {
+    dispplay: block;
+    padding: 0.8rem;
+    background-color: var(--primary);
+    color: var(--dark);
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+/*TOP CONTAINER*/
