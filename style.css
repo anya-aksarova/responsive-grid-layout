@@ -23,10 +23,15 @@ body {
 .btn {
     /*1rem = 16px unless specified different in html element*/
     padding: 0.6rem 1.3rem;
-    color: var(--light;)
+    color: var(--light);
     background-color: var(--dark);
     text-decoration: none;
     border: 0;
+}
+
+.btn:hover {
+    background-color: darkblue;
+    color: var(--light);
 }
 
 img {
@@ -50,7 +55,7 @@ img {
 }
 
 .main-nav a {
-    dispplay: block;
+    display: block;
     padding: 0.8rem;
     background-color: var(--primary);
     color: var(--dark);
@@ -67,3 +72,146 @@ img {
 }
 
 /*TOP CONTAINER*/
+.top-container {
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b";
+}
+
+.showcase {
+    grid-area: showcase;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    min-height: 400px;
+    padding: 2rem;
+    background: url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow);
+}
+
+.showcase h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--light);
+}
+
+.showcase p {
+    font-size: 1.3rem;
+    margin-top: 0;
+    color: var(--light);
+}
+
+.top-box {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 1.5rem;
+    background-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.top-box .price {
+    font-size: 2rem;
+}
+
+.top-box-a {
+    grid-area: top-box-a;
+}
+
+.top-box-b {
+    grid-area: top-box-b;
+}
+
+/*BOXES*/
+.boxes {
+    display: grid;
+    gap: 20px;
+    /*!!! IMPORTANT !!!*/
+    /*making  all of this more responsive where in future 
+    you can add more boxes if needed and there won't be a need
+    to change grid-template-areas sizes when we get different
+    screens. The minmax() width will make each grid item responsive*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.box {
+    background-color: var(--primary);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+/*INFO SECTION*/
+.info {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem;
+    background-color: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.info img {
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+
+/*PORTFOLIO*/
+.portfolio {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.portfolio img {
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+
+/*FOOTER*/
+footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+    color: var(--light);
+    background-color: var(--dark);
+}
+
+/*RESPONSIVENESS WITH MEDIA QUERIES*/
+@media(max-width: 700px) {
+    .top-container {
+        grid-template-areas: 
+        "showcase showcase"
+        "top-box-a top-box-b";
+    }
+    .showcase h1 {
+        font-size: 2.5rem;
+    }
+    .main-nav ul {
+        grid-template-columns: 1fr;
+    }
+    .info {
+        grid-template-columns: 1fr;
+    }
+    .info .btn {
+        /*making anchor button span across
+        the whole width of the container*/
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media(max-width: 500px) {
+    .top-container {
+        grid-template-areas: 
+            "showcase"
+            "top-box-a"
+            "top-box-b";
+    }
+}
